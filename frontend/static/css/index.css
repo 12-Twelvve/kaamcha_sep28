@@ -1,11 +1,10 @@
-html,
+/* html,
 body {
   height: 100%;
   margin: 0;
   padding: 0;
 }
 #main {
-  position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
@@ -15,7 +14,7 @@ body {
 #app {
   width: 100%;
   height: 100%;
-}
+} */
 /* .center {
   position: absolute;
   top: 50%;
@@ -26,5 +25,8 @@ body {
 /* .about {
   margin: 5px, 25px !important;
 } */
-
-
+#app .test {
+  background-color: blue !important;
+  height: 34px !important;
+  width: 23px !important;
+}

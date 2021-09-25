@@ -32,23 +32,27 @@ const profession = [
 
 const location = [
   {
-    value: "ktm",
+    value: "kathmandu",
     label: "Kathmandu",
   },
   {
-    value: "ltp",
+    value: "lalitpur",
     label: "Lalitpur",
   },
   {
-    value: "dng",
+    value: "bhaktapur",
+    label: "Bhaktapur",
+  },
+  {
+    value: "dang",
     label: "Dang",
   },
   {
-    value: "btw",
+    value: "butwal",
     label: "Butwal",
   },
   {
-    value: "ctw",
+    value: "chitwan",
     label: "Chitwan",
   },
 ];
@@ -57,7 +61,7 @@ const Search = () => {
   const [Data, setData] = useState([]);
   const [clearValue, setclearValue] = useState(false);
   const [prof, setprof] = useState("painter");
-  const [loc, setloc] = useState("ktm");
+  const [loc, setloc] = useState("kathmandu");
   const handleProf = (event) => {
     setprof(event.target.value);
   };
@@ -68,7 +72,7 @@ const Search = () => {
   const searchHandler = (e) => {
     console.log("searching..");
     e.preventDefault();
-    fetch(`/api/techuserapi/?profession=${prof}&locatio=${loc}`)
+    fetch(`/api/techuserapi/?profession=${prof}&location=${loc}`)
       .then((res) => res.json())
       .then((data) => {
         setData(data);
@@ -76,9 +80,6 @@ const Search = () => {
         console.log(data);
       })
       .catch((err) => console.log(err));
-    // get the data
-    // fetch()
-    // setclearvalue =true
   };
   const handleBack = (e) => {
     setclearValue(false);
@@ -87,10 +88,15 @@ const Search = () => {
     <React.Fragment>
       {clearValue ? (
         <React.Fragment>
-          <Grid container spacing={0} align="center">
+          <div
+            style={{
+              minHeight: "83vh",
+              margin: "3px 0",
+            }}
+          >
             <IconButton
               color="primary"
-              sx={{ margin: 10 }}
+              sx={{ margin: "30px" }}
               onClick={handleBack}
             >
               <ArrowBackIosIcon />
@@ -98,8 +104,10 @@ const Search = () => {
             <Box
               container
               sx={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
+                display: "flex",
+                flexWrap: "wrap",
+                margin: "0 20px",
+                justifyContent: "center",
               }}
             >
               {
@@ -109,11 +117,21 @@ const Search = () => {
                 })
               }
             </Box>
-          </Grid>
+          </div>
         </React.Fragment>
       ) : (
-        <Grid container spacing={3} align="center" display="flex">
-          <Box container px={80} py={35} align="center" variant="contained">
+        <Grid
+          container
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          minHeight="83vh"
+          justifyContent="center"
+          align="center"
+          overflow="hidden"
+          margin="3px 0"
+        >
+          <Box padding="5px">
             <Grid item xs={12} align="center">
               <Typography variant="h4" compact="h4">
                 Find a local craftsmen for your job
@@ -155,7 +173,11 @@ const Search = () => {
               </TextField>
             </Grid>
             <Box mt={3}>
-              <Button variant="contained" onClick={searchHandler}>
+              <Button
+                sx={{ backgroundColor: "#00e5ff" }}
+                variant="contained"
+                onClick={searchHandler}
+              >
                 Search
               </Button>
             </Box>
@@ -170,13 +192,22 @@ export default Search;
 
 const BasicCard = (props) => {
   return (
-    <Card sx={{ minWidth: 500, margin: 10 }}>
+    <Card
+      sx={{
+        minWidth: 450,
+        margin: "20px",
+        textAlign: "center",
+        backgroundImage:
+          "url('https://files.123freevectors.com/wp-content/original/130978-blue-and-white-polygon-background-template-graphic.jpg')",
+      }}
+    >
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="secondary" gutterBottom>
+        <Typography sx={{ fontSize: 17 }} color="secondary" gutterBottom>
           {props.d.profession}
         </Typography>
-        <Typography variant="h4" component="div">
+        <Typography variant="h4" sx={{ fontWeight: "5px" }} component="div">
           {props.d.first_name}
+          {"  "}
           {props.d.last_name}
         </Typography>
         <Typography sx={{ mb: 1.5 }} color="primary">
@@ -185,7 +216,7 @@ const BasicCard = (props) => {
         <Typography variant="body2">
           {props.d.bio}
           <br />
-          {"phone "}
+          {"phone : "}
           {props.d.phone}
           <br />
           {props.d.email ? props.d.email : ""}

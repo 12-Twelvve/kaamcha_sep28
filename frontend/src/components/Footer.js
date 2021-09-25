@@ -32,12 +32,10 @@ export default function Footer() {
         component="footer"
         sx={{
           py: 3,
-          px: 2,
+          px: 3,
           mt: "auto",
-          backgroundColor: (theme) =>
-            theme.palette.mode === "light"
-              ? theme.palette.grey[200]
-              : theme.palette.grey[800],
+          backgroundColor: "#00e5ff",
+          textAlign:"center"
         }}
       >
         <Container maxWidth="sm">

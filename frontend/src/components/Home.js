@@ -22,30 +22,35 @@ import Footer from "./Footer";
 
 export const Home = () => {
   return (
-    <React.Fragment>
+    <div >
       {/* navigation bar */}
       <Appbar />
       <Router>
         <Switch>
+            <div className="homepage">
           <Route exact path="/about" component={About} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/">
             {/* home page */}
-            <div className="homepage">
               <Search />
-            </div>
           </Route>
+            </div>
         </Switch>
       </Router>
       {/* footer */}
-      <Footer />
-    </React.Fragment>
+      <div style={{ position: "relative" }}>
+        <Footer />
+      </div>
+    </div>
   );
 };
 const Appbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar
+        position="static"
+        style={{ backgroundColor: "#00e5ff", color: "black" }}
+      >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             kAamChha??

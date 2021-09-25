@@ -28,23 +28,27 @@ const profession = [
 
 const location = [
   {
-    value: "ktm",
+    value: "kathmandu",
     label: "Kathmandu",
   },
   {
-    value: "ltp",
+    value: "lalitpur",
     label: "Lalitpur",
   },
   {
-    value: "dng",
+    value: "bhaktapur",
+    label: "Bhaktapur",
+  },
+  {
+    value: "dang",
     label: "Dang",
   },
   {
-    value: "btw",
+    value: "butwal",
     label: "Butwal",
   },
   {
-    value: "ctw",
+    value: "chitwan",
     label: "Chitwan",
   },
 ];
@@ -99,18 +103,19 @@ export const Register = () => {
     <React.Fragment>
       <Grid
         container
-        spacing={1}
+        spacing={0}
         align="center"
         sx={{
-          margin: 10,
+          // backgroundColor: "blue",
           display: "grid",
           justifyContent: "center",
           alignItems: "center",
-          minHeight: "67vh",
+          minHeight: "83vh",
+          margin:"4px 0"
         }}
       >
         <Paper>
-          <Box px={3} py={2}>
+          <Box maxWidth="50vw" padding="20px">
             <Typography variant="h6" align="center" margin="dense">
               Register as a superMan
             </Typography>
@@ -258,7 +263,9 @@ export const Register = () => {
             <Box mt={3}>
               <Button
                 variant="contained"
-                color="primary"
+                // color="#00e5ff"
+                sx={{ backgroundColor: "#00e5ff" }}
+                
                 onClick={handleSubmit}
               >
                 Register
