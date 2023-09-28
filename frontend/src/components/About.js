@@ -13,7 +13,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import { IconButton } from "@mui/material";
 const Data = [
   {
-    name: "12-twelvve",
+    name: "welvve",
     photo:
       "https://i.pinimg.com/236x/c0/f5/ea/c0f5ea0229d00d2a6b10bf4b8793e00d.jpg",
     quote:
